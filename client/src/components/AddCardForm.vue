@@ -16,10 +16,10 @@
 <script>
 
 import {eventBus} from '@/main';
-import QuestionService from '@/services/QuestionService';
+import CardService from '@/services/CardService';
 
 export default {
-  name: "add-question-form",
+  name: "add-card-form",
   data() {
     return {
       question: "",
@@ -31,13 +31,13 @@ export default {
   methods: {
     handleSubmit(event) {
       event.preventDefault()
-      const question = {
+      const card = {
         question: this.question,
         answer: this.answer,
         url: this.url,
         topic: this.topic
       }
-      QuestionService.addQuestionCard(question)
+      CardService.addCard(card)
       .then(res => eventBus.$emit('submit-card', res));
 
     }

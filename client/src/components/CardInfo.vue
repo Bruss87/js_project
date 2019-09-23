@@ -1,20 +1,21 @@
 <template>
-  <div v-if="question" class="flip-card">
+  <div v-if="card" class="flip-card">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <p>{{question.question}}</p>
+        <p>{{card.question}}</p>
       </div>
       <div class="flip-card-back">
-        <p>{{question.answer}}</p>
-        <p><a v-bind:href="question.url" target="_blank">{{question.url}}</a></p>
+        <p>{{card.answer}}</p>
+        <p><a v-bind:href="card.url" target="_blank">{{card.url}}</a></p>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
-  name: 'question-info',
-  props: ['question']
+  name: 'card-info',
+  props: ['card']
 }
 </script>
 <style scoped>

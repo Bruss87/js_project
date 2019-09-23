@@ -2,12 +2,12 @@
   <section>
     <h2>Questions</h2>
     <div>
-    <questions-list-item v-for="question in questions" :key="question._id" :question="question"/>
-  </div>
-</section>
+      <questions-list-item v-for="card in questions" :key="card._id" :card="card"/>
+    </div>
+  </section>
 </template>
 <script>
-import QuestionService from '../services/QuestionService';
+import CardService from '../services/CardService';
 import QuestionsListItem from './QuestionsListItem'
 import {eventBus} from '../main'
 

@@ -1,49 +1,49 @@
 <template>
   <div id="app">
-    <add-question-form/>
+    <add-card-form/>
     <questions-list :questions="questions"/>
-    <question-info :question="selectedQuestion"/>
-    <question-update-form v-if="selectedQuestion" :selected-question="selectedQuestion" />
+    <card-info :card="selectedCard"/>
+    <card-update-form v-if="selectedCard" :selected-card="selectedCard" />
   </div>
 </template>
 
 <script>
 import QuestionsList from './components/QuestionsList';
-import QuestionInfo from './components/QuestionInfo';
-import QuestionUpdateForm from './components/QuestionUpdateForm';
-import QuestionService from './services/QuestionService';
-import AddQuestionForm from './components/AddQuestionForm';
+import CardInfo from './components/CardInfo';
+import CardUpdateForm from './components/CardUpdateForm';
+import CardService from './services/CardService';
+import AddCardForm from './components/AddCardForm';
 import {eventBus} from '@/main';
 
 export default {
   name: 'app',
   components: {
     'questions-list': QuestionsList,
-    'question-info': QuestionInfo,
-    'question-update-form': QuestionUpdateForm,
-    'add-question-form': AddQuestionForm
+    'card-info': CardInfo,
+    'card-update-form': CardUpdateForm,
+    'add-card-form': AddCardForm
 
   },
   data(){
     return{
       questions: [],
-      selectedQuestion: null
+      selectedCard: null
     }
   },
   mounted(){
-    QuestionService.getQuestions()
+    CardService.getQuestions()
     .then(questions => this.questions = questions)
-    
-    eventBus.$on('question-selected', question => {
-      this.selectedQuestion = question
+
+    eventBus.$on('card-selected', card => {
+      this.selectedCard = card
     });
-    eventBus.$on('question-update', questionToUpdate => {
-      QuestionService.updateQuestion(questionToUpdate)
-      const index = this.questions.findIndex(question => question._id === questionToUpdate._id);
-      this.questions.splice(index, 1, questionToUpdate);
+    eventBus.$on('card-update', cardToUpdate => {
+      CardService.updateCard(cardToUpdate)
+      const index = this.questions.findIndex(card => card._id === cardToUpdate._id);
+      this.questions.splice(index, 1, cardToUpdate);
     });
-    eventBus.$on('submit-card', question => {
-      this.questions.push(question)
+    eventBus.$on('submit-card', card => {
+      this.questions.push(card)
     });
 
   }

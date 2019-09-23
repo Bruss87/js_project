@@ -1,7 +1,7 @@
 <template lang="html">
-<div>
-       <li v-on:click="handleClick">{{question.question}}</li>
-</div>
+  <div>
+    <li v-on:click="handleClick">{{card.question}}</li>
+  </div>
 </template>
 
 <script>
@@ -10,10 +10,10 @@ import {eventBus} from '../main'
 
 export default {
   name: 'questions-list-item',
-  props: ['question'],
+  props: ['card'],
   methods: {
     handleClick() {
-      eventBus.$emit('question-selected', this.question);
+      eventBus.$emit('card-selected', this.card);
     }
   }
 
