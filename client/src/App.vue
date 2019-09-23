@@ -3,7 +3,8 @@
     <add-question-form/>
     <questions-list :questions="questions"/>
     <question-info :question="selectedQuestion"/>
-    <question-update-form v-if="selectedQuestion" :selected-question="selectedQuestion" />
+    <question-update-form v-if="selectedQuestion"
+    :selected-question="selectedQuestion" />
   </div>
 </template>
 
