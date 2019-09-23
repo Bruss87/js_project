@@ -7,6 +7,7 @@
     <input type="text" v-model="answer" required>
     <label for="url">Add a URL</label>
     <input type="text" v-model="url">
+
     <label for="topic">Add a topic</label>
     <input type="text" v-model="topic">
     <input type="submit" name="submit" value="Save">

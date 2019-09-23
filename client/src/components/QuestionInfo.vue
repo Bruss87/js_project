@@ -9,9 +9,13 @@
         <p><a v-bind:href="question.url" target="_blank">{{question.url}}</a></p>
       </div>
     </div>
+      <!-- <p v-on:click="handleUpdate"></p> -->
   </div>
 </template>
 <script>
+
+import QuestionUpdateForm from '@/components/QuestionUpdateForm'
+
 export default {
   name: 'question-info',
   props: ['question']

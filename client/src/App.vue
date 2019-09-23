@@ -3,7 +3,7 @@
     <add-question-form/>
     <questions-list :questions="questions"/>
     <question-info :question="selectedQuestion"/>
-    <question-update-form :selected-question="selectedQuestion" />
+    <question-update-form v-if="selectedQuestion" :selected-question="selectedQuestion" />
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
   mounted(){
     QuestionService.getQuestions()
     .then(questions => this.questions = questions)
-    
+
     eventBus.$on('question-selected', question => {
       this.selectedQuestion = question
     });

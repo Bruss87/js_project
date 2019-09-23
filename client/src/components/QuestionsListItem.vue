@@ -14,7 +14,8 @@ export default {
   methods: {
     handleClick() {
       eventBus.$emit('question-selected', this.question);
-    }
+    } 
+
   }
 
 }
