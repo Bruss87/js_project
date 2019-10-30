@@ -39,6 +39,7 @@ export default {
       this.answer = this.selectedQuestion.answer;
       this.url = this.selectedQuestion.url;
       this.topic = this.selectedQuestion.topic;
+      this.isMastered = this.selectedQuestion.isMastered;
     }
   },
   props: ['selectedQuestion'],
